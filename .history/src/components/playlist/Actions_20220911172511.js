@@ -1,9 +1,5 @@
 import React from "react";
 
-const fav = () => {
-  console.log("I like this one");
-};
-
 let Actions = () => {
   return (
     <div className="actions">
@@ -12,8 +8,8 @@ let Actions = () => {
         alt="img"
       />
       <div className="album_meta">
-        <span className="alb_label">ALBUM</span>
-        <h1>Mussorgskys Pictures at an Exhibition</h1>
+       <span className="alb_label">ALBUM</span>
+       <h1>Mussorgskys Pictures at an Exhibition</h1>
       </div>
       <div className="action_btns">
         <button onClick={() => fav()} className="fav_btn">
