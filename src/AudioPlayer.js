@@ -1,22 +1,35 @@
-import React from "react";
+import React from 'react'
+import Header from './components/graphics/Header'
+import Graphics from './components/graphics/Graphics'
+import Playlist from './components/playlist/Playlist'
+import Actions from './components/playlist/Actions'
+import Controls from './components/Controls'
+
+import PlayerState from './context/PlayerState'
+
 import './main.css'
 import './input.css'
-import Header from "./components/Header";
-import Actions from "./components/playlist/Actions";
-import Playlist from "./components/playlist/Playlist";
 
+const close = () => {
+  console.log('Closing the app')
+}
 
-let AudioPlayer = () => {
+function AudioPlayer() {
   return (
-    <div className="audioplayer">
-     <div className="inside_content">
-     <Header/>
-     <Actions/>
-     <Playlist/> 
-     </div>
-   {/* <Controls/> */}
-    </div>
+    <PlayerState>
+      <div className="main">
+        <div className="top">
+          {/* <div className="left">
+          </div> */}
+
+          <Header />
+          <Actions />
+          <Playlist />
+        </div>
+        <Controls />
+      </div>
+    </PlayerState>
   )
 }
 
-export default AudioPlayer;
+export default AudioPlayer

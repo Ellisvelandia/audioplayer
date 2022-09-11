@@ -1,21 +1,21 @@
-import React, { useContext } from 'react'
-import playerContext from '../../context/playerContext'
+import React, { useContext } from "react";
+import playerContext from "../../context/playerContext";
 
 function Playlist() {
-  const { SetCurrent, currentSong, songslist } = useContext(playerContext)
+  const { SetCurrent, currentSong, songslist } = useContext(playerContext);
 
   return (
     <div className="playlist no_drag">
-      {/* <div className="header">
+      <div className="header">
         <h4 className="pltext">Songs by artist</h4>
-      </div> */}
+      </div>
       <ul className="loi">
         {songslist.map((song, i) => (
           <li
-            className={'songContainer ' + (currentSong === i ? 'selected' : '')}
+            className={"songContainer " + (currentSong === i ? "selected" : "")}
             key={i}
             onClick={() => {
-              SetCurrent(i)
+              SetCurrent(i);
             }}
           >
             <div className="tmbn_song">
@@ -37,7 +37,7 @@ function Playlist() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default Playlist
+export default Playlist;

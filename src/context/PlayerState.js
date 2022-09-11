@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
-import playerContext from "./playerContext";
-import playerReducer from "./playerReducer";
-import { song_list } from "./songs";
+import React, { useReducer } from 'react'
+import playerContext from './playerContext'
+import playerReducer from './playerReducer'
+import { song_list } from './songs'
 
 import {
   SET_CURRENT_SONG,
@@ -9,7 +9,7 @@ import {
   TOGGLE_REPEAT,
   TOGGLE_PLAYING,
   SET_SONGS_ARRAY,
-} from "./types";
+} from './types'
 
 const PlayerState = (props) => {
   const initialState = {
@@ -19,40 +19,40 @@ const PlayerState = (props) => {
     random: false,
     playing: false,
     audio: null,
-  };
-  const [state, dispatch] = useReducer(playerReducer, initialState);
+  }
+  const [state, dispatch] = useReducer(playerReducer, initialState)
 
   // Set songs array
   const songsSet = (songArr) =>
-    dispatch({ type: SET_SONGS_ARRAY, data: songArr });
+    dispatch({ type: SET_SONGS_ARRAY, data: songArr })
   // Set playing state
   const togglePlaying = () =>
-    dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true });
+    dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true })
   // Set current song
-  const SetCurrent = (id) => dispatch({ type: SET_CURRENT_SONG, data: id });
+  const SetCurrent = (id) => dispatch({ type: SET_CURRENT_SONG, data: id })
 
   // Prev song
   const prevSong = () => {
     if (state.currentSong === 0) {
-      SetCurrent(state.songs.length - 1);
+      SetCurrent(state.songs.length - 1)
     } else {
-      SetCurrent(state.currentSong - 1);
+      SetCurrent(state.currentSong - 1)
     }
-  };
+  }
   // Next song
   const nextSong = () => {
     if (state.currentSong === state.songs.length - 1) {
-      SetCurrent(0);
+      SetCurrent(0)
     } else {
-      SetCurrent(state.currentSong + 1);
+      SetCurrent(state.currentSong + 1)
     }
-  };
+  }
 
   // Repeat and Random
   const toggleRepeat = (id) =>
-    dispatch({ type: TOGGLE_REPEAT, data: state.repeat ? false : true });
+    dispatch({ type: TOGGLE_REPEAT, data: state.repeat ? false : true })
   const toggleRandom = (id) =>
-    dispatch({ type: TOGGLE_RANDOM, data: state.random ? false : true });
+    dispatch({ type: TOGGLE_RANDOM, data: state.random ? false : true })
 
   // End of Song
   const handleEnd = () => {
@@ -61,17 +61,17 @@ const PlayerState = (props) => {
       return dispatch({
         type: SET_CURRENT_SONG,
         data: ~~(Math.random() * state.songs.length),
-      });
+      })
     } else {
       if (state.repeat) {
-        nextSong();
+        nextSong()
       } else if (state.currentSong === state.songs.length - 1) {
-        return;
+        return
       } else {
-        nextSong();
+        nextSong()
       }
     }
-  };
+  }
 
   return (
     <playerContext.Provider
@@ -95,7 +95,7 @@ const PlayerState = (props) => {
     >
       {props.children}
     </playerContext.Provider>
-  );
-};
+  )
+}
 
-export default PlayerState;
+export default PlayerState
