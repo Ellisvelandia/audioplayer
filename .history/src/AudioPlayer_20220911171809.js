@@ -1,6 +1,6 @@
 import React from "react";
 import './main.css'
-import './input.css'
+import './'
 import Header from "./components/Header";
 import Actions from "./components/playlist/Actions";
 

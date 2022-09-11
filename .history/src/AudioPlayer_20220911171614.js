@@ -10,7 +10,7 @@ let AudioPlayer = () => {
     <div className="audioplayer">
      <div className="inside_content">
      <Header/>
-     <Actions/>
+     <Actionss/>
      {/* <Playlist/>  */}
      </div>
    {/* <Controls/> */}

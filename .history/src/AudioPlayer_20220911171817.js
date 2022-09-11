@@ -1,5 +1,5 @@
 import React from "react";
-import './main.css'
+import './'
 import './input.css'
 import Header from "./components/Header";
 import Actions from "./components/playlist/Actions";
