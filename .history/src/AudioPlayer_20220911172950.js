@@ -3,7 +3,6 @@ import './main.css'
 import './input.css'
 import Header from "./components/Header";
 import Actions from "./components/playlist/Actions";
-import Playlist from "./components/playlist/Playlist";
 
 
 let AudioPlayer = () => {
